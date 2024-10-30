@@ -4,7 +4,7 @@ let dots = [];
 let numberofDots = 5;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(600, 600);
   for (let i = 0; i < numberofDots; i++) {
     dots[i] = new Circle(50);
   }
@@ -22,6 +22,11 @@ function draw() {
   for (let i = 0; i < dots.length; i++) {
     const dot = dots[i]
     dot.draw();
+  }
+
+  //snap into place
+  if (dist(mouseX, mouseY, this.x, this.y) < 20) {
+    console.log("connected!")
   }
 }
 
@@ -46,7 +51,6 @@ class Line {
 
 class Circle {
   constructor(parameters) {
-    
     this.place(random(width),random(height));
   }
   place(x,y) {
@@ -54,6 +58,6 @@ class Circle {
     this.y = y;
   }
   draw(){
-    circle(this.x, this.y, 200);
+    circle(this.x, this.y, 50);
   }
 }
