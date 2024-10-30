@@ -46,7 +46,7 @@ class Line {
 
 class Circle {
   constructor(parameters) {
-    this.diameter = diameter;
+    
     this.place(random(width),random(height));
   }
   place(x,y) {
