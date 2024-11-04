@@ -19,9 +19,15 @@ function draw() {
 
   // old lines
   stroke("red");
+  
   for (let i = 0; i < lines.length; i++) {
     const l = lines[i];
     l.draw();
+
+    if (dist(mx, my, lineEndingX, lineEndingY) > 7) {
+      stroke(220);
+    
+    }
   }
 
   lineEndingX = mouseX;
@@ -38,9 +44,9 @@ function draw() {
   }
 
   // current line
-  stroke("black");
+  stroke("black")
   line(mx, my, lineEndingX, lineEndingY);
-
+ 
 
 }
 
@@ -51,7 +57,5 @@ function mouseClicked() {
   my = mouseY;
 
   //tried to change line color depending on distance to hide it
-  if (dist(mx, my, lineEndingX, lineEndingY) > 15) {
-    stroke(220);
-  }
+ 
 }
