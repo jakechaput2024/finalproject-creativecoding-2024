@@ -1,6 +1,7 @@
 let mx, my;
 let lines = [];
 let dots = [];
+let lineEndingX, lineEndingY;
 
 function setup() {
 
@@ -8,7 +9,7 @@ function setup() {
 
   createCanvas(600, 600);
   for (let i = 0; i < numberofDots; i++) {
-    dots[i] = new Circle(20);
+    dots[i] = new Circle(50);
   }
 }
 
@@ -30,12 +31,17 @@ function draw() {
   for (let i = 0; i < dots.length; i++) {
     const dot = dots[i]
     dot.draw();
+    if (dist(mouseX, mouseY, dot.x, dot.y) < 15) {
+      lineEndingX = dot.x;
+      lineEndingY = dot.y;
+    }
   }
 
-  //snap into place
-  if (dist(mouseX, mouseY, this.x, this.y) < 20) {
-    console.log("connected!")
-  }
+  // current line
+  stroke("black");
+  line(mx, my, lineEndingX, lineEndingY);
+
+
 }
 
 function mouseClicked() {
@@ -43,29 +49,9 @@ function mouseClicked() {
   lines.push(line);
   mx = mouseX;
   my = mouseY;
-}
 
-class Line {
-  constructor(startX,startY,endX,endY) {
-    this.startX = startX;
-    this.startY = startY;
-    this.endX = endX;
-    this.endY = endY;
-  }
-  draw() {
-    line(this.startX,this.startY,this.endX,this.endY)
-  }
-}
-
-class Circle {
-  constructor(parameters) {
-    this.place(random(width),random(height));
-  }
-  place(x,y) {
-    this.x = x;
-    this.y = y;
-  }
-  draw(){
-    circle(this.x, this.y, 50);
-  }
+//tried to change line color depending on distance to hide it
+//  if (dist(mx, my, dot.x, dot.y) > 15) {
+//    stroke(220);
+//  }
 }
