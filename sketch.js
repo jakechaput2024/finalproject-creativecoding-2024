@@ -9,7 +9,7 @@ function setup() {
 
   createCanvas(600, 600);
   for (let i = 0; i < numberofDots; i++) {
-    dots[i] = new Circle(50);
+    dots[i] = new Circle(30);
   }
 }
 
@@ -31,7 +31,7 @@ function draw() {
   for (let i = 0; i < dots.length; i++) {
     const dot = dots[i]
     dot.draw();
-    if (dist(mouseX, mouseY, dot.x, dot.y) < 15) {
+    if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
       lineEndingX = dot.x;
       lineEndingY = dot.y;
     }
@@ -50,8 +50,8 @@ function mouseClicked() {
   mx = mouseX;
   my = mouseY;
 
-//tried to change line color depending on distance to hide it
-//  if (dist(mx, my, dot.x, dot.y) > 15) {
-//    stroke(220);
-//  }
+  //tried to change line color depending on distance to hide it
+  if (dist(mx, my, lineEndingX, lineEndingY) > 15) {
+    stroke(220);
+  }
 }
