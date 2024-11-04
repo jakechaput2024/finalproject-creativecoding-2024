@@ -2,7 +2,6 @@ let mx, my;
 let lines = [];
 let dots = [];
 
-
 function setup() {
 
   let numberofDots = random(2, 10);
