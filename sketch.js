@@ -19,15 +19,9 @@ function draw() {
 
   // old lines
   stroke("red");
-  
   for (let i = 0; i < lines.length; i++) {
     const l = lines[i];
     l.draw();
-
-    if (dist(mx, my, lineEndingX, lineEndingY) > 7) {
-      stroke(220);
-    
-    }
   }
 
   lineEndingX = mouseX;
@@ -44,7 +38,7 @@ function draw() {
   }
 
   // current line
-  stroke("black")
+  stroke("black");
   line(mx, my, lineEndingX, lineEndingY);
  
 
@@ -52,7 +46,15 @@ function draw() {
 
 function mouseClicked() {
   let line = new Line(mx, my, lineEndingX, lineEndingY);
-  lines.push(line);
+  for (let i = 0; i < dots.length; i++) {
+  const dot = dots[i]
+  if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
+    lineEndingX = dot.x;
+    lineEndingY = dot.y;
+    lines.push(line);
+    break;
+  }
+}
   mx = mouseX;
   my = mouseY;
 
