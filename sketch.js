@@ -2,10 +2,12 @@ let mx, my;
 let lines = [];
 let dots = [];
 let lineEndingX, lineEndingY;
+let allConnected = false; //when lines connect dots, this'll become true
+let numberofDots;
 
 function setup() {
 
-  let numberofDots = random(2, 10);
+   numberofDots = floor(random(2, 10));
 
   createCanvas(600, 600);
   for (let i = 0; i < numberofDots; i++) {
@@ -16,7 +18,7 @@ function setup() {
 function draw() {
   background(220);
 
-
+  
   // old lines
   stroke("red");
   for (let i = 0; i < lines.length; i++) {
@@ -31,6 +33,12 @@ function draw() {
   for (let i = 0; i < dots.length; i++) {
     const dot = dots[i]
     dot.draw();
+
+
+    textSize(16);
+    textAlign(CENTER, CENTER);
+    text(i + 1, dot.x, dot.y - 20);
+    
     if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
       lineEndingX = dot.x;
       lineEndingY = dot.y;
@@ -40,7 +48,15 @@ function draw() {
   // current line
   stroke("black");
   line(mx, my, lineEndingX, lineEndingY);
+
+  if (allConnected) {
+    fill("green");
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    text("You Won!", width / 2, height / 2);
+  }
  
+  
 
 }
 
@@ -55,9 +71,12 @@ function mouseClicked() {
     break;
   }
 }
+
   mx = mouseX;
   my = mouseY;
-
+  if (lines.length === numberofDots) {
+    allConnected = true;
+  }
+}
   //tried to change line color depending on distance to hide it
  
-}
