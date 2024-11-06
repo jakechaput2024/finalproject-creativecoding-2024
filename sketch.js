@@ -10,7 +10,7 @@ function setup() {
 
    numberofDots = floor(random(2, 10));
 
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < numberofDots; i++) {
     dots[i] = new Circle(30);
   }
@@ -24,7 +24,7 @@ function draw() {
       background("black");
       textSize(32);
       fill(255);
-      text("Try to connect all of the dots in order!", 30, 50);
+      text("Try to connect all of the dots in order!", 500, 50);
 
       if (millis() > 7000) {
         state = 1;
