@@ -4,6 +4,7 @@ let dots = [];
 let lineEndingX, lineEndingY;
 let allConnected = false; //when lines connect dots, this'll become true
 let numberofDots;
+let state = 0;
 
 function setup() {
 
@@ -18,44 +19,60 @@ function setup() {
 function draw() {
   background(220);
 
+  switch (state) {
+    case 0:
+      background("black");
+      textSize(32);
+      fill(255);
+      text("Try to connect all of the dots in order!", 30, 50);
+
+      if (millis() > 7000) {
+        state = 1;
+    }
+
+    break;
   
-  // old lines
-  stroke("red");
-  for (let i = 0; i < lines.length; i++) {
-    const l = lines[i];
-    l.draw();
-  }
 
-  lineEndingX = mouseX;
-  lineEndingY = mouseY;
+    case 1:
+  
+    // old lines
+    stroke("red");
+    for (let i = 0; i < lines.length; i++) {
+      const l = lines[i];
+      l.draw();
+    }
 
-  // the dots
-  for (let i = 0; i < dots.length; i++) {
-    const dot = dots[i]
-    dot.draw();
+    lineEndingX = mouseX;
+    lineEndingY = mouseY;
+
+    // the dots
+    for (let i = 0; i < dots.length; i++) {
+      const dot = dots[i]
+      dot.draw();
 
 
-    textSize(16);
-    textAlign(CENTER, CENTER);
-    text(i + 1, dot.x, dot.y - 20);
+      textSize(16);
+      textAlign(CENTER, CENTER);
+      text(i + 1, dot.x, dot.y - 20);
     
-    if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
+      if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
       lineEndingX = dot.x;
       lineEndingY = dot.y;
     }
   }
 
-  // current line
-  stroke("black");
-  line(mx, my, lineEndingX, lineEndingY);
+   // current line
+    stroke("black");
+    line(mx, my, lineEndingX, lineEndingY);
 
-  if (allConnected) {
-    fill("green");
-    textSize(32);
-    textAlign(CENTER, CENTER);
-    text("You Won!", width / 2, height / 2);
+    if (allConnected) {
+      fill("green");
+      textSize(32);
+      textAlign(CENTER, CENTER);
+        text("You Won!", width / 2, height / 2);
+   }
+   break;
   }
- 
   
 
 }
