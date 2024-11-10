@@ -8,7 +8,7 @@ let state = 0;
 
 function setup() {
 
-   numberofDots = floor(random(2, 10));
+  numberofDots = floor(random(2, 15));
 
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < numberofDots; i++) {
@@ -28,72 +28,67 @@ function draw() {
 
       if (millis() > 7000) {
         state = 1;
-    }
+      }
 
-    break;
-  
+      break;
+
 
     case 1:
-  
-    // old lines
-    stroke("red");
-    for (let i = 0; i < lines.length; i++) {
-      const l = lines[i];
-      l.draw();
-    }
 
-    lineEndingX = mouseX;
-    lineEndingY = mouseY;
+      // old lines
+      stroke("red");
+      for (let i = 0; i < lines.length; i++) {
+        const l = lines[i];
+        l.draw();
+      }
 
-    // the dots
-    for (let i = 0; i < dots.length; i++) {
-      const dot = dots[i]
-      dot.draw();
+      lineEndingX = mouseX;
+      lineEndingY = mouseY;
+
+      // the dots
+      for (let i = 0; i < dots.length; i++) {
+        const dot = dots[i]
+        dot.draw();
 
 
-      textSize(16);
-      textAlign(CENTER, CENTER);
-      text(i + 1, dot.x, dot.y - 20);
-    
-      if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
-      lineEndingX = dot.x;
-      lineEndingY = dot.y;
-    }
-  }
+        textSize(16);
+        textAlign(CENTER, CENTER);
+        text(i + 1, dot.x, dot.y - 20);
 
-   // current line
-    stroke("black");
-    line(mx, my, lineEndingX, lineEndingY);
+        if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
+          lineEndingX = dot.x;
+          lineEndingY = dot.y;
+        }
+      }
 
-    if (allConnected) {
-      fill("green");
-      textSize(32);
-      textAlign(CENTER, CENTER);
+      // current line
+      stroke("black");
+      line(mx, my, lineEndingX, lineEndingY);
+
+      if (allConnected) {
+        fill("green");
+        textSize(32);
+        textAlign(CENTER, CENTER);
         text("You Won!", width / 2, height / 2);
-   }
-   break;
+      }
+      break;
   }
-  
-
 }
+
 
 function mouseClicked() {
-  let line = new Line(mx, my, lineEndingX, lineEndingY);
   for (let i = 0; i < dots.length; i++) {
-  const dot = dots[i]
-  if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
-    lineEndingX = dot.x;
-    lineEndingY = dot.y;
-    lines.push(line);
-    break;
-  }
-}
+    const dot = dots[i]
+    if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
+      let line = new Line(mx, my, dot.x, dot.y);
+      lines.push(line);
 
-  mx = mouseX;
-  my = mouseY;
+      mx = dot.x;
+      my = dot.y;
   if (lines.length === numberofDots) {
     allConnected = true;
   }
+  break;
 }
-  //tried to change line color depending on distance to hide it
- 
+  }
+}
