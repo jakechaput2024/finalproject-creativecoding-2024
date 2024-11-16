@@ -70,6 +70,46 @@ function draw() {
         textSize(32);
         textAlign(CENTER, CENTER);
         text("You Won!", width / 2, height / 2);
+        state = 2;
+      }
+      break;
+
+    case 2:
+      // old lines
+      stroke("red");
+      for (let i = 0; i < lines.length; i++) {
+        const l = lines[i];
+        l.draw();
+      }
+
+      lineEndingX = mouseX;
+      lineEndingY = mouseY;
+
+      // the dots
+      for (let i = 0; i < dots.length; i++) {
+        const dot = dots[i]
+        dot.draw();
+
+
+        textSize(16);
+        textAlign(CENTER, CENTER);
+        text(i + 1, dot.x, dot.y - 20);
+
+        if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
+          lineEndingX = dot.x;
+          lineEndingY = dot.y;
+        }
+      }
+
+      // current line
+      stroke("black");
+      line(mx, my, lineEndingX, lineEndingY);
+
+      if (allConnected) {
+        fill("green");
+        textSize(32);
+        textAlign(CENTER, CENTER);
+        text("You Won!", width / 2, height / 2);
       }
       break;
   }
