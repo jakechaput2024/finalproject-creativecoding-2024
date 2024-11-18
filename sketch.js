@@ -9,12 +9,7 @@ let img;
 let gradient;
 let text1, text2;
 let song;
-
 let allCoordinates = [];
-
-//let xcoordinates = [322, 128, 365, 800, 1076, 1186, 1136, 973]
-//let ycoordinates = [65, 317, 534, 634, 502, 357, 283, 86]
-
 
 function preload() {
   img = loadImage('/assets/Placeholder.png');
@@ -25,33 +20,25 @@ function preload() {
 }
 
 function setup() {
+  song.play();
+  song.loop();
+
 
   allCoordinates = [
     [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)]
   ]
 
-  song.play();
-  song.loop();
-
-  //numberofDots = xcoordinates.length;
-
   createCanvas(windowWidth, windowHeight);
-  //for (let i = 0; i < numberofDots; i++) {
-  //let x = xcoordinates[i];
-  //let y = ycoordinates[i];
-  //dots.push(new Circle(x, y, 20));
-  //}
 }
 
 function draw() {
-  //background(2, 13, 23);
   image(gradient, 0, 0)
 
   switch (state) {
     case 0:
       background("black");
 
-      //image(text1, 400, 500);
+      //image(text1, 400, 500); commented out for testing
 
       if (millis() > 0) { //4900 
         state = 1;
@@ -62,7 +49,7 @@ function draw() {
     case 1:
       background("black");
 
-      //image(text2, 400, 500);
+      //image(text2, 400, 500); commented out for testing
 
       if (millis() > 0) { //9900
         state = 2;
@@ -91,16 +78,6 @@ function draw() {
         const xy = allCoordinates[stage][i]; //dot = dots[i]
         circle(xy.x, xy.y, 20); //dot.draw();
 
-
-        //   textSize(16);
-        //   textAlign(CENTER, CENTER);
-        //  text(i + 1, dot.x, dot.y - 20);
-
-        //   if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
-        //    lineEndingX = dot.x;
-        //    lineEndingY = dot.y;
-        //   }
-
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
@@ -128,7 +105,6 @@ function draw() {
   }
 }
 
-
 function mouseClicked() {
   for (let i = 0; i < allCoordinates[stage].length; i++) {
     const xy = allCoordinates[stage][i];
@@ -150,20 +126,3 @@ function mouseClicked() {
     }
   }
 }
-
-// function mouseClicked() {
-//   for (let i = 0; i < dots.length; i++) {
-//     const dot = dots[i]
-//     if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
-//       let line = new Line(mx, my, dot.x, dot.y);
-//       lines.push(line);
-
-//       mx = dot.x;
-//       my = dot.y;
-//   if (lines.length === numberofDots) {
-//     allConnected = true;
-//   }
-//   break;
-// }
-//   }
-// }
