@@ -4,13 +4,18 @@ let dots = [];
 let lineEndingX, lineEndingY;
 let allConnected = false; //when lines connect dots, this'll become true
 let numberofDots;
+let currentdotIndex = 0;
 let state = 0;
+let stage = 0;
 let img;
 let gradient;
 let text1, text2;
 let song;
-let xcoordinates = [322, 128, 365, 800, 1076, 1186, 1136, 973]
-let ycoordinates = [65, 317, 534, 634, 502, 357, 283, 86]
+
+let allCoordinates = [];
+
+//let xcoordinates = [322, 128, 365, 800, 1076, 1186, 1136, 973]
+//let ycoordinates = [65, 317, 534, 634, 502, 357, 283, 86]
 
 
 function preload() {
@@ -22,19 +27,22 @@ function preload() {
 }
 
 function setup() {
+
+  allCoordinates = [
+    [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)]
+  ]
+
   song.play();
   song.loop();
-
-  numberofDots = xcoordinates.length;
-
+  
+  //numberofDots = xcoordinates.length;
 
   createCanvas(windowWidth, windowHeight);
-  for (let i = 0; i < numberofDots; i++) {
-    let x = xcoordinates[i];
-    let y = ycoordinates[i];
-    dots.push(new Circle(x, y, 20));
-  }
-  
+  //for (let i = 0; i < numberofDots; i++) {
+    //let x = xcoordinates[i];
+    //let y = ycoordinates[i];
+    //dots.push(new Circle(x, y, 20));
+  //}
 }
 
 function draw() {
@@ -81,19 +89,23 @@ function draw() {
       lineEndingY = mouseY;
 
       // the dots
-      for (let i = 0; i < dots.length; i++) {
-        const dot = dots[i]
-        dot.draw();
+      for (let i = 0; i < allCoordinates[stage].length; i++) {//(let i = 0; i < dots.length; i++) {
+        const xy = allCoordinates[stage][i]//dot = dots[i]
+        circle(xy.x, xy.y, 20); //dot.draw();
 
 
-        textSize(16);
-        textAlign(CENTER, CENTER);
-        text(i + 1, dot.x, dot.y - 20);
+      //   textSize(16);
+      //   textAlign(CENTER, CENTER);
+      //  text(i + 1, dot.x, dot.y - 20);
 
-        if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
-          lineEndingX = dot.x;
-          lineEndingY = dot.y;
-        }
+      //   if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
+      //    lineEndingX = dot.x;
+      //    lineEndingY = dot.y;
+      //   }
+        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+          lineEndingX = xy.x;
+          lineEndingY = xy.y;
+         }
       }
 
       // current line
@@ -106,7 +118,7 @@ function draw() {
         textAlign(CENTER, CENTER);
         text("You Won!", width / 2, height / 2);
         image(img, 0, 0);
-        if (millis() > 10000) { //4900 (work on setting the millis > number)
+        if (millis() > 90000) { //4900 (work on setting the millis > number)
           state = 3;
         }
       }
@@ -119,18 +131,36 @@ function draw() {
 
 
 function mouseClicked() {
-  for (let i = 0; i < dots.length; i++) {
-    const dot = dots[i]
-    if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
-      let line = new Line(mx, my, dot.x, dot.y);
+  for (let i = 0; i < allCoordinates[stage].length; i++) {
+    const xy = allCoordinates[stage][i];
+    if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+      let line = new Line(mx, my, xy.x, xy.y);
       lines.push(line);
 
-      mx = dot.x;
-      my = dot.y;
-  if (lines.length === numberofDots) {
-    allConnected = true;
+      mx = xy.x
+      my = xy.y
+
+    if (lines.length === allCoordinates[stage].length) {
+      allConnected = true;
+    }
+    break;
+    }
   }
-  break;
 }
-  }
-}
+
+// function mouseClicked() {
+//   for (let i = 0; i < dots.length; i++) {
+//     const dot = dots[i]
+//     if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
+//       let line = new Line(mx, my, dot.x, dot.y);
+//       lines.push(line);
+
+//       mx = dot.x;
+//       my = dot.y;
+//   if (lines.length === numberofDots) {
+//     allConnected = true;
+//   }
+//   break;
+// }
+//   }
+// }
