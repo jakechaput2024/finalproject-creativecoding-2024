@@ -1,9 +1,7 @@
 let mx, my;
 let lines = [];
-let dots = [];
 let lineEndingX, lineEndingY;
 let allConnected = false; //when lines connect dots, this'll become true
-let numberofDots;
 let currentdotIndex = 0;
 let state = 0;
 let stage = 0;
@@ -34,14 +32,14 @@ function setup() {
 
   song.play();
   song.loop();
-  
+
   //numberofDots = xcoordinates.length;
 
   createCanvas(windowWidth, windowHeight);
   //for (let i = 0; i < numberofDots; i++) {
-    //let x = xcoordinates[i];
-    //let y = ycoordinates[i];
-    //dots.push(new Circle(x, y, 20));
+  //let x = xcoordinates[i];
+  //let y = ycoordinates[i];
+  //dots.push(new Circle(x, y, 20));
   //}
 }
 
@@ -52,7 +50,7 @@ function draw() {
   switch (state) {
     case 0:
       background("black");
-      
+
       //image(text1, 400, 500);
 
       if (millis() > 0) { //4900 
@@ -63,7 +61,7 @@ function draw() {
 
     case 1:
       background("black");
-      
+
       //image(text2, 400, 500);
 
       if (millis() > 0) { //9900
@@ -75,8 +73,8 @@ function draw() {
     case 2:
 
 
-    fill(255, 60, 100);
-  text("(" + mouseX + ", " + mouseY + ")", mouseX, mouseY);
+      fill(255, 60, 100);
+      text("(" + mouseX + ", " + mouseY + ")", mouseX, mouseY);
 
       // old lines
       stroke(199, 249, 255);
@@ -88,24 +86,25 @@ function draw() {
       lineEndingX = mouseX;
       lineEndingY = mouseY;
 
-      // the dots
-      for (let i = 0; i < allCoordinates[stage].length; i++) {//(let i = 0; i < dots.length; i++) {
-        const xy = allCoordinates[stage][i]//dot = dots[i]
+      // the coordinates
+      for (let i = 0; i < allCoordinates[stage].length; i++) { //(let i = 0; i < dots.length; i++) {
+        const xy = allCoordinates[stage][i]; //dot = dots[i]
         circle(xy.x, xy.y, 20); //dot.draw();
 
 
-      //   textSize(16);
-      //   textAlign(CENTER, CENTER);
-      //  text(i + 1, dot.x, dot.y - 20);
+        //   textSize(16);
+        //   textAlign(CENTER, CENTER);
+        //  text(i + 1, dot.x, dot.y - 20);
 
-      //   if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
-      //    lineEndingX = dot.x;
-      //    lineEndingY = dot.y;
-      //   }
+        //   if (dist(mouseX, mouseY, dot.x, dot.y) < 7) {
+        //    lineEndingX = dot.x;
+        //    lineEndingY = dot.y;
+        //   }
+
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
-         }
+        }
       }
 
       // current line
@@ -125,7 +124,7 @@ function draw() {
       break;
 
     case 3:
-      
+
   }
 }
 
@@ -134,16 +133,20 @@ function mouseClicked() {
   for (let i = 0; i < allCoordinates[stage].length; i++) {
     const xy = allCoordinates[stage][i];
     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+      if (i === currentdotIndex) {
+        currentdotIndex++;
       let line = new Line(mx, my, xy.x, xy.y);
       lines.push(line);
+      mx = xy.x;
+      my = xy.y;
 
-      mx = xy.x
-      my = xy.y
-
-    if (lines.length === allCoordinates[stage].length) {
-      allConnected = true;
+      if (lines.length === allCoordinates[stage].length) {
+        allConnected = true;
+      }
+    } else {
+      console.log("Incorrect click sequence");
     }
-    break;
+      break;
     }
   }
 }
