@@ -1,6 +1,7 @@
 class Circle {
-    constructor(d) {
-      this.place(random(width),random(height));
+    constructor(x, y, d) {
+      this.x = x;
+      this.y = y;
       this.diameter = d;
     }
     place(x,y) {

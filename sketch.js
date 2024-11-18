@@ -8,22 +8,31 @@ let state = 0;
 let img;
 let gradient;
 let text1, text2;
+let song;
+let xcoordinates = [322, 128, 365, 800, 1076, 1186, 1136, 973]
+let ycoordinates = [65, 317, 534, 634, 502, 357, 283, 86]
 
 
 function preload() {
-  img = loadImage('/assets/Rat.png');
+  img = loadImage('/assets/Placeholder.png');
   gradient = loadImage('/assets/gradient.png');
   text1 = loadImage('/assets/text1.gif');
   text2 = loadImage('/assets/text2.gif');
+  song = loadSound('/assets/music.mp3');
 }
 
 function setup() {
+  song.play();
+  song.loop();
 
-  numberofDots = floor(random(2, 15));
+  numberofDots = xcoordinates.length;
+
 
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < numberofDots; i++) {
-    dots[i] = new Circle(25);
+    let x = xcoordinates[i];
+    let y = ycoordinates[i];
+    dots.push(new Circle(x, y, 20));
   }
   
 }
@@ -36,9 +45,9 @@ function draw() {
     case 0:
       background("black");
       
-      image(text1, 400, 500);
+      //image(text1, 400, 500);
 
-      if (millis() > 4900) {
+      if (millis() > 0) { //4900 
         state = 1;
       }
 
@@ -47,15 +56,19 @@ function draw() {
     case 1:
       background("black");
       
-      image(text2, 400, 500);
+      //image(text2, 400, 500);
 
-      if (millis() > 9900) {
+      if (millis() > 0) { //9900
         state = 2;
       }
 
       break;
 
     case 2:
+
+
+    fill(255, 60, 100);
+  text("(" + mouseX + ", " + mouseY + ")", mouseX, mouseY);
 
       // old lines
       stroke(199, 249, 255);
@@ -93,6 +106,9 @@ function draw() {
         textAlign(CENTER, CENTER);
         text("You Won!", width / 2, height / 2);
         image(img, 0, 0);
+        if (millis() > 10000) { //4900 (work on setting the millis > number)
+          state = 3;
+        }
       }
       break;
 
