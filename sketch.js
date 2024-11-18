@@ -22,10 +22,11 @@ function preload() {
 function setup() {
   song.play();
   song.loop();
-
+  console.log
 
   allCoordinates = [
-    [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)]
+    [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)],
+    [createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)]
   ]
 
   createCanvas(windowWidth, windowHeight);
@@ -94,9 +95,10 @@ function draw() {
         textAlign(CENTER, CENTER);
         text("You Won!", width / 2, height / 2);
         image(img, 0, 0);
-        if (millis() > 90000) { //4900 (work on setting the millis > number)
+        if (millis() > 10000) { //4900 (work on setting the millis > number)
           state = 3;
         }
+        stage = (stage + 1) %2
       }
       break;
 
@@ -119,9 +121,7 @@ function mouseClicked() {
       if (lines.length === allCoordinates[stage].length) {
         allConnected = true;
       }
-    } else {
-      console.log("Incorrect click sequence");
-    }
+    } else {}
       break;
     }
   }
