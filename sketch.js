@@ -43,6 +43,7 @@ function draw() {
   image(gradient, 0, 0);
 
   circle(mouseX, mouseY, random(5, 8));
+  line(mouseX, mouseY, pmouseX, pmouseY);
 
   for (let i = 0; i < stars.length; i++) {
     const star = stars[i]
