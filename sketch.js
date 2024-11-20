@@ -10,6 +10,8 @@ let gradient;
 let text1, text2;
 let song;
 let allCoordinates = [];
+let stars = [];
+let numberofStars = 150;
 
 function preload() {
   img = loadImage('/assets/Placeholder.png');
@@ -25,15 +27,28 @@ function setup() {
   allCoordinates = [
     [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)],
     [createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)],
+    //[createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)], //this proves that you can use the same list of vectors and the code will work
     [createVector(356, 173), createVector(425, 496), createVector(990, 133), createVector(973, 450), createVector(356, 173)]
   ]
 
   createCanvas(1399, 703);
+  noCursor();
+
+  for (let i = 0; i < numberofStars; i++) {
+    stars[i] = new Stars(1);
+}
 }
 
 function draw() {
   image(gradient, 0, 0);
 
+  circle(mouseX, mouseY, random(5, 8));
+
+  for (let i = 0; i < stars.length; i++) {
+    const star = stars[i]
+    star.draw();
+  }
+  
   switch (state) {
     case 0:
       background("black");
@@ -73,7 +88,7 @@ function draw() {
       // the coordinates
       for (let i = 0; i < allCoordinates[stage].length; i++) { //(let i = 0; i < dots.length; i++) {
         const xy = allCoordinates[stage][i]; //dot = dots[i]
-        circle(xy.x, xy.y, 20); //dot.draw();
+        circle(xy.x, xy.y, 15); //dot.draw();
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
@@ -98,6 +113,7 @@ function draw() {
           my = undefined;
         }
       }
+      
       break;
 
     case 3:
@@ -118,7 +134,7 @@ function draw() {
 
       for (let i = 0; i < allCoordinates[stage].length; i++) {
         const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, 20);
+        circle(xy.x, xy.y, 15);
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
@@ -162,7 +178,7 @@ function draw() {
 
       for (let i = 0; i < allCoordinates[stage].length; i++) {
         const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, 20);
+        circle(xy.x, xy.y, 15);
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
