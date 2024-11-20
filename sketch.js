@@ -210,9 +210,15 @@ function mouseClicked() {
 function keyPressed() {
   if (key === 'm') {
     song.play();
+    if (song.isPlaying()) {
+      song.stop();
+    }
     song.loop();
   } else if (key === 'M') {
     song.play();
+    if (song.isPlaying()) {
+      song.stop();
+    }
     song.loop();
   }
 }
