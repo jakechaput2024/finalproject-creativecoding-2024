@@ -16,6 +16,7 @@ let meteorX = 0;
 let meteorY = 0;
 let meteorDiameter = 0.5;
 let meteorSpeed = 0;
+var timerStartTime;
 
 function preload() {
   img = loadImage('/assets/Placeholder.png');
@@ -40,6 +41,8 @@ function setup() {
 
   for (let i = 0; i < numberofStars; i++) {
     stars[i] = new Stars(1);
+
+  timerStartTime = millis();
 }
 }
 
@@ -59,18 +62,20 @@ function draw() {
   switch (state) {
     case 0:
       background("black");
-      //image(text1, 400, 500); commented out for testing
-      if (millis() > 0) { //4900 
+      image(text1, 400, 500); //commented out for testing
+      if (millis()-timerStartTime > 20) { //4900 
         state = 1;
       }
+      timerStartTime = millis();
       break;
 
     case 1:
       background("black");
-      //image(text2, 400, 500); commented out for testing
-      if (millis() > 0) { //9900
+      image(text2, 400, 500); //commented out for testing
+      if (millis() > 20) { //9900
         state = 2;
       }
+      timerStartTime = millis();
       break;
 
     case 2:
@@ -108,7 +113,7 @@ function draw() {
 
       if (allConnected) {
         image(img, 0, 0);
-        if (millis() > 30000) { //4900 (work on setting the millis > number)
+        if (millis()-timerStartTime > 30) { //4900 (work on setting the millis > number)
           state = 3;
           stage = (stage + 1) % allCoordinates.length;
           console.log(stage);
@@ -120,7 +125,7 @@ function draw() {
           my = undefined;
         }
       }
-      
+      timerStartTime = millis();
       break;
 
     case 3:
