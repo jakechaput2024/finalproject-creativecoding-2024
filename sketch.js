@@ -12,6 +12,10 @@ let song;
 let allCoordinates = [];
 let stars = [];
 let numberofStars = 150;
+let meteorX = 0;
+let meteorY = 0;
+let meteorDiameter = 0.5;
+let meteorSpeed = 0;
 
 function preload() {
   img = loadImage('/assets/Placeholder.png');
@@ -44,6 +48,8 @@ function draw() {
 
   circle(mouseX, mouseY, random(5, 8));
   line(mouseX, mouseY, pmouseX, pmouseY);
+
+  meteorShower (4);
 
   for (let i = 0; i < stars.length; i++) {
     const star = stars[i]
@@ -244,4 +250,21 @@ function keyPressed() {
   if (key === 's') {
     song.stop();
   }
+}
+
+function meteorShower (meteorSpeed) {
+  fill(199, 249, 255);
+  circle(meteorX, meteorY, meteorDiameter);
+  circle(meteorX + 400, meteorY - 300, meteorDiameter);
+  circle(meteorX + 700, meteorY + 50, meteorDiameter);
+  circle(meteorX, meteorY + 420, meteorDiameter);
+  meteorX = meteorX + meteorSpeed;
+  meteorY = meteorX + meteorSpeed;
+
+  if(meteorX > 1399 || meteorY > 703) {
+    meteorX = 0;
+    meteorY = 0;
+    meteorDiameter = 1;
+  }
+
 }
