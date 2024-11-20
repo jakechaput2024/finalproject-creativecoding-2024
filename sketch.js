@@ -55,6 +55,9 @@ function draw() {
       fill(199, 249, 255);
       text("(" + mouseX + ", " + mouseY + ")", mouseX, mouseY);
 
+      drawingContext.shadowBlur = 30;
+      drawingContext.shadowColor = color(199, 249, 255);
+
       // old lines
       stroke(199, 249, 255);
       for (let i = 0; i < lines.length; i++) {
@@ -220,5 +223,8 @@ function keyPressed() {
       song.stop();
     }
     song.loop();
+  }
+  if (key === 's') {
+    song.stop();
   }
 }
