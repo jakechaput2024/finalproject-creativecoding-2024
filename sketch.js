@@ -89,7 +89,7 @@ function draw() {
       // the coordinates
       for (let i = 0; i < allCoordinates[stage].length; i++) { //(let i = 0; i < dots.length; i++) {
         const xy = allCoordinates[stage][i]; //dot = dots[i]
-        circle(xy.x, xy.y, 15); //dot.draw();
+        circle(xy.x, xy.y, random(18, 20)); //dot.draw();
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
@@ -135,7 +135,7 @@ function draw() {
 
       for (let i = 0; i < allCoordinates[stage].length; i++) {
         const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, 15);
+        circle(xy.x, xy.y, random(18, 20));
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
@@ -179,7 +179,7 @@ function draw() {
 
       for (let i = 0; i < allCoordinates[stage].length; i++) {
         const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, 15);
+        circle(xy.x, xy.y, random(18, 20));
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
