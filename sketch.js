@@ -21,7 +21,6 @@ function preload() {
 
 function setup() {
   song.play();
-  song.loop();
   console.log
 
   allCoordinates = [
@@ -29,47 +28,41 @@ function setup() {
     [createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)]
   ]
 
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1399, 703);
 }
 
 function draw() {
-  image(gradient, 0, 0)
+  image(gradient, 0, 0);
 
   switch (state) {
     case 0:
       background("black");
-
       //image(text1, 400, 500); commented out for testing
-
       if (millis() > 0) { //4900 
         state = 1;
       }
-
       break;
 
     case 1:
       background("black");
-
       //image(text2, 400, 500); commented out for testing
-
       if (millis() > 0) { //9900
         state = 2;
       }
-
       break;
 
     case 2:
-
-
       fill(255, 60, 100);
       text("(" + mouseX + ", " + mouseY + ")", mouseX, mouseY);
 
       // old lines
-      stroke(199, 249, 255);
+      stroke(199, 249, 255); //need this stroke so the older lines show
       for (let i = 0; i < lines.length; i++) {
         const l = lines[i];
         l.draw();
       }
+
+      noStroke(); //no stroke color for the circles
 
       lineEndingX = mouseX;
       lineEndingY = mouseY;
@@ -78,7 +71,6 @@ function draw() {
       for (let i = 0; i < allCoordinates[stage].length; i++) { //(let i = 0; i < dots.length; i++) {
         const xy = allCoordinates[stage][i]; //dot = dots[i]
         circle(xy.x, xy.y, 20); //dot.draw();
-
         if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
           lineEndingX = xy.x;
           lineEndingY = xy.y;
@@ -90,19 +82,70 @@ function draw() {
       line(mx, my, lineEndingX, lineEndingY);
 
       if (allConnected) {
-        fill("green");
-        textSize(32);
-        textAlign(CENTER, CENTER);
-        text("You Won!", width / 2, height / 2);
+        // fill("green");
+        // textSize(32);
+        // textAlign(CENTER, CENTER);
+        // text("You Won!", width / 2, height / 2);
         image(img, 0, 0);
-        if (millis() > 10000) { //4900 (work on setting the millis > number)
+        if (millis() > 30000) { //4900 (work on setting the millis > number)
           state = 3;
+          stage = (stage + 1) % allCoordinates.length;
+          console.log(stage);
+
+          lines = [];
+          allConnected = false;
+          currentdotIndex = 0;
+          mx = undefined;
+          my = undefined;
         }
-        stage = (stage + 1) %2
       }
       break;
 
     case 3:
+
+    fill(245, 175, 78);
+    stroke(199, 249, 255); //need this stroke so the older lines show
+      for (let i = 0; i < lines.length; i++) {
+        const l = lines[i];
+        l.draw();
+      }
+
+    noStroke();
+
+    lineEndingX = mouseX;
+    lineEndingY = mouseY;
+
+    for (let i = 0; i < allCoordinates[stage].length; i++) {
+      const xy = allCoordinates[stage][i];
+      circle(xy.x, xy.y, 20); 
+      if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+        lineEndingX = xy.x;
+        lineEndingY = xy.y;
+      }     
+    }
+
+    stroke(199, 249, 255);
+    line(mx, my, lineEndingX, lineEndingY);
+
+    if (allConnected) {
+      // fill("green");
+      // textSize(32);
+      // textAlign(CENTER, CENTER);
+      // text("You Won!", width / 2, height / 2);
+      image(img, 0, 0);
+      if (millis() > 30000) { //4900 (work on setting the millis > number)
+        state = 3;
+        stage = (stage + 1) % allCoordinates.length;
+        console.log(stage);
+
+        lines = [];
+        allConnected = false;
+        currentdotIndex = 0;
+        mx = undefined;
+        my = undefined;
+      }
+    }
+    break;
 
   }
 }
@@ -111,7 +154,7 @@ function mouseClicked() {
   for (let i = 0; i < allCoordinates[stage].length; i++) {
     const xy = allCoordinates[stage][i];
     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-      if (i === currentdotIndex) {
+      if (i === currentdotIndex) { 
         currentdotIndex++;
       let line = new Line(mx, my, xy.x, xy.y);
       lines.push(line);
