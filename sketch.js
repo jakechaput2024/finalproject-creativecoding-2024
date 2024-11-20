@@ -63,19 +63,22 @@ function draw() {
     case 0:
       background("black");
       image(text1, 400, 500); //commented out for testing
-      if (millis()-timerStartTime > 20) { //4900 
+      if (millis()-timerStartTime > 4900) { //4900 
         state = 1;
+
+        timerStartTime = millis();
       }
-      timerStartTime = millis();
+  
       break;
 
     case 1:
       background("black");
       image(text2, 400, 500); //commented out for testing
-      if (millis() > 20) { //9900
+      if (millis()-timerStartTime > 4900) { //9900
         state = 2;
+
+        timerStartTime = millis();
       }
-      timerStartTime = millis();
       break;
 
     case 2:
@@ -125,7 +128,9 @@ function draw() {
           my = undefined;
         }
       }
+
       timerStartTime = millis();
+    
       break;
 
     case 3:
