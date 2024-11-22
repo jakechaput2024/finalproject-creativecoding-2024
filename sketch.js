@@ -39,7 +39,8 @@ function setup() {
     [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)],
     [createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)],
     //[createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)], //this proves that you can use the same list of vectors and the code will work
-    [createVector(356, 173), createVector(425, 496), createVector(990, 133), createVector(973, 450), createVector(357, 174)]
+    [createVector(356, 173), createVector(425, 496), createVector(990, 133), createVector(973, 450), createVector(357, 174)],
+    [createVector(208, 89), createVector(403, 24), createVector(539, 151), createVector(668, 216), createVector(828, 172), createVector(1141, 40), createVector(1177, 152), createVector(1158, 242), createVector(889, 490), createVector(632, 385), createVector(410, 525), createVector(540, 655), createVector(666, 596)]
   ]
 
   createCanvas(1399, 703);
