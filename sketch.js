@@ -17,6 +17,9 @@ let meteorY = 0;
 let meteorDiameter = 0.5;
 let meteorSpeed = 0;
 var timerStartTime;
+let keklosfinal;
+let kyprafull;
+let kairos;
 
 function preload() {
   img = loadImage('/assets/Placeholder.png');
@@ -24,6 +27,9 @@ function preload() {
   text1 = loadImage('/assets/text1.gif');
   text2 = loadImage('/assets/text2.gif');
   song = loadSound('/assets/music.mp3');
+  keklosfinal = loadImage('/assets/keklosfinal.gif');
+  kyprafull = loadImage('/assets/kyprafull.gif');
+  kairos = loadImage('/assets/kairos.gif')
 }
 
 function setup() {
@@ -33,7 +39,7 @@ function setup() {
     [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)],
     [createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)],
     //[createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)], //this proves that you can use the same list of vectors and the code will work
-    [createVector(356, 173), createVector(425, 496), createVector(990, 133), createVector(973, 450), createVector(356, 173)]
+    [createVector(356, 173), createVector(425, 496), createVector(990, 133), createVector(973, 450), createVector(357, 174)]
   ]
 
   createCanvas(1399, 703);
@@ -63,7 +69,7 @@ function draw() {
     case 0:
       background("black");
       image(text1, 400, 500); //commented out for testing
-      if (millis()-timerStartTime > 4900) { //4900 
+      if (millis()-timerStartTime > 0) { //4900 
         state = 1;
 
         timerStartTime = millis();
@@ -74,7 +80,7 @@ function draw() {
     case 1:
       background("black");
       image(text2, 400, 500); //commented out for testing
-      if (millis()-timerStartTime > 4900) { //9900
+      if (millis()-timerStartTime > 0) { //4900
         state = 2;
 
         timerStartTime = millis();
@@ -115,8 +121,15 @@ function draw() {
       line(mx, my, lineEndingX, lineEndingY);
 
       if (allConnected) {
+
+        if (timerStartTime === undefined) {
+          timerStartTime = millis(); // Reset the timer when entering Case 2
+        }    
+
+        image(keklosfinal, 400, 500);
+
         image(img, 0, 0);
-        if (millis()-timerStartTime > 30) { //4900 (work on setting the millis > number)
+        if (millis() - timerStartTime > 0) { //12500) { 
           state = 3;
           stage = (stage + 1) % allCoordinates.length;
           console.log(stage);
@@ -126,10 +139,11 @@ function draw() {
           currentdotIndex = 0;
           mx = undefined;
           my = undefined;
+          timerStartTime = undefined;
         }
+      } else {
+        timerStartTime = undefined; 
       }
-
-      timerStartTime = millis();
     
       break;
 
@@ -162,8 +176,14 @@ function draw() {
       line(mx, my, lineEndingX, lineEndingY);
 
       if (allConnected) {
-        image(img, 0, 0);
-        if (millis() > 30000) { //4900 (work on setting the millis > number)
+
+        if (timerStartTime === undefined) {
+          timerStartTime = millis();
+        } 
+
+        image(kyprafull, 400, 500);
+        
+        if (millis() - timerStartTime > 0) {//30500) { 
           state = 4;
           stage = (stage + 1) % allCoordinates.length;
           console.log(stage);
@@ -173,8 +193,12 @@ function draw() {
           currentdotIndex = 0;
           mx = undefined;
           my = undefined;
+          timerStartTime = undefined;
         }
+      } else {
+        timerStartTime = undefined; 
       }
+      
       break;
 
     case 4:
@@ -206,9 +230,15 @@ function draw() {
       line(mx, my, lineEndingX, lineEndingY);
 
       if (allConnected) {
-        image(img, 0, 0);
-        if (millis() > 30000) { //4900 (work on setting the millis > number)
-          state = 4;
+
+        if (timerStartTime === undefined) {
+          timerStartTime = millis(); // Reset the timer when entering Case 2
+        } 
+
+        image(kairos, 400, 500)
+
+        if (millis() - timerStartTime > 0){//11000) { 
+          state = 5;
           stage = (stage + 1) % allCoordinates.length;
           console.log(stage);
 
@@ -217,8 +247,72 @@ function draw() {
           currentdotIndex = 0;
           mx = undefined;
           my = undefined;
+          timerStartTime = undefined;
+        }
+      } else {
+        timerStartTime = undefined; 
+      }
+
+      break;
+
+      case 5:
+
+      case 4:
+
+      fill(199, 249, 255);
+
+      //old lines
+      stroke(199, 249, 255);
+      for (let i = 0; i < lines.length; i++) {
+        const l = lines[i];
+        l.draw();
+      }
+
+      noStroke();
+
+      lineEndingX = mouseX;
+      lineEndingY = mouseY;
+
+      for (let i = 0; i < allCoordinates[stage].length; i++) {
+        const xy = allCoordinates[stage][i];
+        circle(xy.x, xy.y, random(18, 20));
+        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+          lineEndingX = xy.x;
+          lineEndingY = xy.y;
         }
       }
+
+      stroke(199, 249, 255);
+      line(mx, my, lineEndingX, lineEndingY);
+
+      if (allConnected) {
+
+        if (timerStartTime === undefined) {
+          timerStartTime = millis(); // Reset the timer when entering Case 2
+        } 
+
+        image(kairos, 400, 500)
+
+        if (millis() - timerStartTime > 0){//11000) { 
+          state = 6;
+          stage = (stage + 1) % allCoordinates.length;
+          console.log(stage);
+
+          lines = [];
+          allConnected = false;
+          currentdotIndex = 0;
+          mx = undefined;
+          my = undefined;
+          timerStartTime = undefined;
+        }
+      } else {
+        timerStartTime = undefined; 
+      }
+
+      break;
+
+      case 6:
+
 
   }
 }
