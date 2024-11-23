@@ -18,9 +18,10 @@ let meteorDiameter = 0.5;
 let meteorSpeed = 0;
 var timerStartTime;
 let keklosfinal, kyprafull, kairos, teriliou, kyrin, tarwynus, squid, bo, centaurking, pharoah, monster, lyre, eye, hydra, demigod, dog;
+let crab, fish, hourglass, bird, horse, bull, squidy, bobo, centaur, oldking, monsterking, lyre2, eyeball, snakes, man, doggy, endscreen;
 
 function preload() {
-  img = loadImage('/assets/Placeholder.png');
+  //img = loadImage('/assets/Placeholder.png');
   gradient = loadImage('/assets/gradient.png');
   text1 = loadImage('/assets/text1.gif');
   text2 = loadImage('/assets/text2.gif');
@@ -41,6 +42,23 @@ function preload() {
   hydra = loadImage('/assets/hydra.gif');
   demigod = loadImage('/assets/demigod.gif');
   dog = loadImage('/assets/dog.gif');
+  crab = loadImage('/assets/crab.png');
+  fish = loadImage('/assets/fish.png');
+  hourglass = loadImage('/assets/hourglass.png');
+  bird = loadImage('/assets/bird.png');
+  horse = loadImage('/assets/horse.png');
+  bull = loadImage('/assets/bull.png');
+  squidy = loadImage('/assets/squid.png');
+  bobo = loadImage('/assets/bo.png');
+  centaur = loadImage('/assets/centaur.png');
+  oldking = loadImage('/assets/oldking.png');
+  monsterking = loadImage('/assets/monsterking.png');
+  lyre2 = loadImage('/assets/lyre.png');
+  eyeball = loadImage('/assets/eye.png');
+  snakes = loadImage('/assets/snakes.png');
+  man = loadImage('/assets/man.png');
+  doggy = loadImage('/assets/doggy.png');
+  endscreen = loadImage('/assets/endscreen.png');
 }
 
 function setup() {
@@ -148,10 +166,9 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         }    
-
+        image(crab, 0, 0);
         image(keklosfinal, 400, 500);
 
-        image(img, 0, 0);
         if (millis() - timerStartTime > 12500) { //12500) { 
           state = 3;
           stage = (stage + 1) % allCoordinates.length;
@@ -203,7 +220,7 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis();
         } 
-
+        image(fish, 0,0);
         image(kyprafull, 400, 500);
         
         if (millis() - timerStartTime > 30500) {//30500) { 
@@ -258,6 +275,7 @@ function draw() {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
 
+        image(hourglass,0,0)
         image(kairos, 400, 500)
 
         if (millis() - timerStartTime > 11000){//11000) { 
@@ -311,8 +329,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(teriliou, 400, 500)
+        image(bird,0,0);
+        image(teriliou, 400, 500);
 
         if (millis() - timerStartTime > 42000){//42000){
           state = 6;
@@ -365,8 +383,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(kyrin, 400, 500)
+        image(horse,0,0);
+        image(kyrin, 400, 500);
 
         if (millis() - timerStartTime > 31000){
           state = 7;
@@ -419,8 +437,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(tarwynus, 400, 500)
+        image(bull,0,0);
+        image(tarwynus, 400, 500);
 
         if (millis() - timerStartTime > 25000){
           state = 8;
@@ -473,10 +491,10 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
+        image(squidy,0,0);
+        image(squid, 400, 500);
 
-        image(squid, 400, 500)
-
-        if (millis() - timerStartTime > 25400){
+        if (millis() - timerStartTime > 25000){
           state = 9;
           stage = (stage + 1) % allCoordinates.length;
           console.log(stage);
@@ -527,8 +545,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(bo, 400, 500)
+        image(bobo,0,0);
+        image(bo, 400, 500);
 
         if (millis() - timerStartTime > 13000){
           state = 10;
@@ -581,8 +599,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(centaurking, 400, 500)
+        image(centaur,0,0);
+        image(centaurking, 400, 500);
 
         if (millis() - timerStartTime > 17000){
           state = 11;
@@ -635,10 +653,10 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
+        image(oldking,0,0);
+        image(pharoah, 400, 500);
 
-        image(pharoah, 400, 500)
-
-        if (millis() - timerStartTime > 31700){
+        if (millis() - timerStartTime > 30000){
           state = 12;
           stage = (stage + 1) % allCoordinates.length;
           console.log(stage);
@@ -689,8 +707,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(monster, 400, 500)
+        image(monsterking,0,0);
+        image(monster, 400, 500);
 
         if (millis() - timerStartTime > 49000){
           state = 13;
@@ -743,8 +761,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(lyre, 400, 500)
+        image(lyre2,0,0);
+        image(lyre, 400, 500);
 
         if (millis() - timerStartTime > 13900){
           state = 14;
@@ -797,8 +815,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(eye, 400, 500)
+        image(eyeball,0,0);
+        image(eye, 400, 500);
 
         if (millis() - timerStartTime > 12000){
           state = 15;
@@ -851,8 +869,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(hydra, 400, 500)
+        image(snakes,0,0);
+        image(hydra, 400, 500);
 
         if (millis() - timerStartTime > 24000){
           state = 16;
@@ -905,8 +923,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(demigod, 400, 500)
+        image(man,0,0);
+        image(demigod, 400, 500);
 
         if (millis() - timerStartTime > 10000){
           state = 17;
@@ -959,8 +977,8 @@ function draw() {
         if (timerStartTime === undefined) {
           timerStartTime = millis(); // Reset the timer when entering Case 2
         } 
-
-        image(dog, 400, 500)
+        image(doggy,0,0);
+        image(dog, 400, 500);
 
         if (millis() - timerStartTime > 17000){
           state = 18;
@@ -977,6 +995,14 @@ function draw() {
       } else {
         timerStartTime = undefined; 
       }
+
+      break;
+
+      case 18:
+
+      image(endscreen, 0, 0);
+
+      break;
 
 
 
