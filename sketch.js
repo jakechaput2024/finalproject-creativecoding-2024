@@ -99,8 +99,6 @@ function draw() {
   circle(mouseX, mouseY, random(5, 8));
   line(mouseX, mouseY, pmouseX, pmouseY);
 
-  meteorShower (4);
-
   for (let i = 0; i < stars.length; i++) {
     const star = stars[i]
     star.draw();
