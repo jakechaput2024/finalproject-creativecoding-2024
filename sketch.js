@@ -21,42 +21,11 @@ function preload() {
   text2 = loadImage('/assets/text2.gif');
   song = loadSound('/assets/music.mp3');
   keklosfinal = loadImage('/assets/keklosfinal.gif');
-  kyprafull = loadImage('/assets/kyprafull.gif');
-  kairos = loadImage('/assets/kairos.gif');
-  teriliou = loadImage('/assets/Teriliou.gif');
-  kyrin = loadImage('/assets/kyrin.gif');
-  tarwynus = loadImage('/assets/tarwynus.gif');
-  squid = loadImage('/assets/squid.gif');
-  bo = loadImage('/assets/bo.gif');
-  centaurking = loadImage('/assets/centaurking.gif');
-  pharoah = loadImage('/assets/pharoah.gif');
-  monster = loadImage('/assets/monster.gif');
-  lyre = loadImage('/assets/lyre.gif');
-  eye = loadImage('/assets/eye.gif');
-  hydra = loadImage('/assets/hydra.gif');
-  demigod = loadImage('/assets/demigod.gif');
-  dog = loadImage('/assets/dog.gif');
-  crab = loadImage('/assets/crab.png');
-  fish = loadImage('/assets/fish.png');
-  hourglass = loadImage('/assets/hourglass.png');
-  bird = loadImage('/assets/bird.png');
-  horse = loadImage('/assets/horse.png');
-  bull = loadImage('/assets/bull.png');
-  squidy = loadImage('/assets/squid.png');
-  bobo = loadImage('/assets/bo.png');
-  centaur = loadImage('/assets/centaur.png');
-  oldking = loadImage('/assets/oldking.png');
-  monsterking = loadImage('/assets/monsterking.png');
-  lyre2 = loadImage('/assets/lyre.png');
-  eyeball = loadImage('/assets/eye.png');
-  snakes = loadImage('/assets/snakes.png');
-  man = loadImage('/assets/man.png');
-  doggy = loadImage('/assets/doggy.png');
   endscreen = loadImage('/assets/endscreen.png');
 }
 
 function setup() {
-  //song.play();
+  song.play();
 
   allCoordinates = [
     [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)],
