@@ -128,7 +128,6 @@ function draw() {
 
     case 2:
       fill(199, 249, 255);
-      text("(" + mouseX + ", " + mouseY + ")", mouseX, mouseY);
 
       drawingContext.shadowBlur = 30;
       drawingContext.shadowColor = color(199, 249, 255);
