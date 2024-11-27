@@ -103,6 +103,8 @@ function draw() {
     const star = stars[i]
     star.draw();
   }
+
+  meteorShower(4);
   
   switch (state) {
     case 0:
