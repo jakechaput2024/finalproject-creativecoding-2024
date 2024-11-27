@@ -60,21 +60,7 @@ function setup() {
 
   allCoordinates = [
     [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)],
-    [createVector(258, 179), createVector(409, 385), createVector(1011, 191), createVector(1238, 306), createVector(1217, 452)],
-    [createVector(356, 173), createVector(425, 496), createVector(990, 133), createVector(973, 450), createVector(357, 174)],
-    [createVector(208, 89), createVector(403, 24), createVector(539, 151), createVector(668, 216), createVector(828, 172), createVector(1141, 40), createVector(1177, 152), createVector(1158, 242), createVector(889, 490), createVector(632, 385), createVector(410, 525), createVector(540, 655), createVector(666, 596)],
-    [createVector(1141, 40), createVector(1177, 152), createVector(1158, 242), createVector(516, 416), createVector(189, 596), createVector(831, 509)],
-    [createVector(180, 86), createVector(253, 159), createVector(223, 251), createVector(303, 271), createVector(397, 212), createVector(316, 473), createVector(428, 610), createVector(466, 575), createVector(440, 475), createVector(543, 288), createVector(752, 425), createVector(725, 499), createVector(791, 605), createVector(864, 612), createVector(858, 474), createVector(978, 393), createVector(1175, 256), createVector(1044, 135), createVector(896, 114)],
-    [createVector(700, 668), createVector(668, 559), createVector(528, 498), createVector(576, 402), createVector(259, 383), createVector(431, 42), createVector(618, 70), createVector(1038, 240), createVector(853, 335), createVector(1008, 396), createVector(988, 488), createVector(1131, 463), createVector(1199, 540), createVector(1184, 663)],
-    [createVector(573, 109), createVector(598, 264), createVector(590, 606), createVector(953, 583), createVector(891,468)],
-    [createVector(330, 63), createVector(309, 215), createVector(348, 385), createVector(462, 586), createVector(974, 313), createVector(1052, 528), createVector(990, 628)],
-    [createVector(572, 626), createVector(569, 558), createVector(566, 492), createVector(486, 489), createVector(459, 345), createVector(525, 222), createVector(529, 131), createVector(677, 71), createVector(891, 138), createVector(956, 289), createVector(908, 430), createVector(821, 490), createVector(820, 554)],
-    [createVector(497, 110), createVector(420, 153), createVector(425, 250), createVector(546, 231), createVector(606, 319), createVector(500, 464), createVector(464,635), createVector(889, 582), createVector(785, 394), createVector(924, 190)],
-    [createVector(212, 141), createVector(387, 99), createVector(441, 255), createVector(370, 402), createVector(451, 579), createVector(729, 635), createVector(964,547), createVector(951, 254), createVector(891, 125), createVector(1000, 80), createVector(1136, 169)],
-    [createVector(370, 402), createVector(451, 579), createVector(729, 635), createVector(964,547), createVector(817, 359), createVector(636, 280), createVector(387, 389)],
-    [createVector(202, 302), createVector(361, 141), createVector(603, 89), createVector(696, 188), createVector(522, 232), createVector(466, 352), createVector(394, 490), createVector(445, 596), createVector(542, 516), createVector(504, 421), createVector(640, 292), createVector(730, 227), createVector(808, 286), createVector(716, 363), createVector(674, 419), createVector(678, 551), createVector(794, 607), createVector(854, 570), createVector(802, 477), createVector(1272, 415), createVector(1364,194), createVector(1134, 59), createVector(943, 42), createVector(859, 86)],
-    [createVector(859, 86), createVector(808, 286), createVector(716, 363), createVector(674, 419), createVector(678, 551)],
-    [createVector(466, 352), createVector(504, 421), createVector(674, 419), createVector(716, 363), createVector(808, 286)],
+
   ]
 
   createCanvas(1399, 703);
