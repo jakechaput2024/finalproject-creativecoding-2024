@@ -1050,19 +1050,19 @@ function keyPressed() {
   }
 }
 
-function meteorShower (meteorSpeed) {
-  fill(199, 249, 255);
-  circle(meteorX, meteorY, meteorDiameter);
-  circle(meteorX + 400, meteorY - 300, meteorDiameter);
-  circle(meteorX + 700, meteorY + 50, meteorDiameter);
-  circle(meteorX, meteorY + 420, meteorDiameter);
-  meteorX = meteorX + meteorSpeed;
-  meteorY = meteorX + meteorSpeed;
+// function meteorShower (meteorSpeed) {
+//   fill(199, 249, 255);
+//   circle(meteorX, meteorY, meteorDiameter);
+//   circle(meteorX + 400, meteorY - 300, meteorDiameter);
+//   circle(meteorX + 700, meteorY + 50, meteorDiameter);
+//   circle(meteorX, meteorY + 420, meteorDiameter);
+//   meteorX = meteorX + meteorSpeed;
+//   meteorY = meteorX + meteorSpeed;
 
-  if(meteorX > 1399 || meteorY > 703) {
-    meteorX = 0;
-    meteorY = 0;
-    meteorDiameter = 1;
-  }
+//   if(meteorX > 1399 || meteorY > 703) {
+//     meteorX = 0;
+//     meteorY = 0;
+//     meteorDiameter = 1;
+//   }
 
-}
+// }
