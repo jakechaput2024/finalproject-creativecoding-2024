@@ -7,14 +7,10 @@ let state = 0;
 let stage = 0;
 let gradient;
 let text1, text2;
-//let song;
+let song;
 let allCoordinates = [];
 let stars = [];
-let numberofStars = 150;
-let meteorX = 0;
-let meteorY = 0;
-let meteorDiameter = 0.5;
-let meteorSpeed = 0;
+let numberofStars = 20;
 var timerStartTime;
 let keklosfinal, kyprafull, kairos, teriliou, kyrin, tarwynus, squid, bo, centaurking, pharoah, monster, lyre, eye, hydra, demigod, dog;
 let crab, fish, hourglass, bird, horse, bull, squidy, bobo, centaur, oldking, monsterking, lyre2, eyeball, snakes, man, doggy, endscreen;
@@ -23,7 +19,7 @@ function preload() {
   gradient = loadImage('/assets/gradient.png');
   text1 = loadImage('/assets/text1.gif');
   text2 = loadImage('/assets/text2.gif');
-  //song = loadSound('/assets/music.mp3');
+  song = loadSound('/assets/music.mp3');
   keklosfinal = loadImage('/assets/keklosfinal.gif');
   kyprafull = loadImage('/assets/kyprafull.gif');
   kairos = loadImage('/assets/kairos.gif');
@@ -185,820 +181,820 @@ function draw() {
 
     case 3:
 
-      fill(199, 249, 255);
+    //   fill(199, 249, 255);
 
-      //old lines
-      stroke(199, 249, 255); 
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
+    //   //old lines
+    //   stroke(199, 249, 255); 
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
 
-      noStroke();
+    //   noStroke();
 
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
 
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
 
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
 
-      if (allConnected) {
+    //   if (allConnected) {
 
-        if (timerStartTime === undefined) {
-          timerStartTime = millis();
-        } 
-        image(fish, 0,0);
-        image(kyprafull, 400, 500);
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis();
+    //     } 
+    //     image(fish, 0,0);
+    //     image(kyprafull, 400, 500);
         
-        if (millis() - timerStartTime > 30500) {//30500) { 
-          state = 4;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
+    //     if (millis() - timerStartTime > 30500) {//30500) { 
+    //       state = 4;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
 
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
       
-      break;
+    //   break;
 
-    case 4:
+    // case 4:
 
-      fill(199, 249, 255);
+    //   fill(199, 249, 255);
 
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
 
-      noStroke();
+    //   noStroke();
 
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
 
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
 
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
 
-      if (allConnected) {
+    //   if (allConnected) {
 
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
 
-        image(hourglass,0,0)
-        image(kairos, 400, 500)
+    //     image(hourglass,0,0)
+    //     image(kairos, 400, 500)
 
-        if (millis() - timerStartTime > 11000){//11000) { 
-          state = 5;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
+    //     if (millis() - timerStartTime > 11000){//11000) { 
+    //       state = 5;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
 
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
 
-      break;
+    //   break;
 
-      case 5:
+    //   case 5:
 
-      fill(199, 249, 255);
+    //   fill(199, 249, 255);
 
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
 
-      noStroke();
+    //   noStroke();
 
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
 
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
 
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
 
-      if (allConnected) {
+    //   if (allConnected) {
 
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(bird,0,0);
-        image(teriliou, 400, 500);
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(bird,0,0);
+    //     image(teriliou, 400, 500);
 
-        if (millis() - timerStartTime > 42000){//42000){
-          state = 6;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
+    //     if (millis() - timerStartTime > 42000){//42000){
+    //       state = 6;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
 
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
 
-      break;
+    //   break;
 
-      case 6:
+    //   case 6:
 
-      fill(199, 249, 255);
+    //   fill(199, 249, 255);
 
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
 
-      noStroke();
+    //   noStroke();
 
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
 
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
 
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
 
-      if (allConnected) {
+    //   if (allConnected) {
 
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(horse,0,0);
-        image(kyrin, 400, 500);
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(horse,0,0);
+    //     image(kyrin, 400, 500);
 
-        if (millis() - timerStartTime > 31000){
-          state = 7;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
+    //     if (millis() - timerStartTime > 31000){
+    //       state = 7;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
 
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
 
-      break;
+    //   break;
     
-      case 7:
-
-      fill(199, 249, 255);
-
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
-
-      noStroke();
-
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
-
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
-
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
-
-      if (allConnected) {
-
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(bull,0,0);
-        image(tarwynus, 400, 500);
-
-        if (millis() - timerStartTime > 25000){
-          state = 8;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
-
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
-
-      break;
-
-      case 8:
-
-      fill(199, 249, 255);
-
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
-
-      noStroke();
-
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
-
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
-
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
-
-      if (allConnected) {
-
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(squidy,0,0);
-        image(squid, 400, 500);
-
-        if (millis() - timerStartTime > 25000){
-          state = 9;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
-
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
-
-      break;
-
-      case 9:
-
-      fill(199, 249, 255);
-
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
-
-      noStroke();
-
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
-
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
-
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
-
-      if (allConnected) {
-
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(bobo,0,0);
-        image(bo, 400, 500);
-
-        if (millis() - timerStartTime > 13000){
-          state = 10;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
-
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
-
-      break;
-
-      case 10:
-
-      fill(199, 249, 255);
-
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
-
-      noStroke();
-
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
-
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
-
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
-
-      if (allConnected) {
-
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(centaur,0,0);
-        image(centaurking, 400, 500);
-
-        if (millis() - timerStartTime > 17000){
-          state = 11;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
-
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
-
-      break;
-
-      case 11:
-
-      fill(199, 249, 255);
-
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
-
-      noStroke();
-
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
-
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
-
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
-
-      if (allConnected) {
-
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(oldking,0,0);
-        image(pharoah, 400, 500);
-
-        if (millis() - timerStartTime > 30000){
-          state = 12;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
-
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
-
-      break;
-
-      case 12:
-
-      fill(199, 249, 255);
-
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
-
-      noStroke();
-
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
-
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
-
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
-
-      if (allConnected) {
-
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(monsterking,0,0);
-        image(monster, 400, 500);
-
-        if (millis() - timerStartTime > 49000){
-          state = 13;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
-
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
-
-      break;
-
-      case 13:
-
-      fill(199, 249, 255);
-
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
-
-      noStroke();
-
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
-
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
-
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
-
-      if (allConnected) {
-
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(lyre2,0,0);
-        image(lyre, 400, 500);
-
-        if (millis() - timerStartTime > 13900){
-          state = 14;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
-
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
-
-      break;
-
-      case 14:
-
-      fill(199, 249, 255);
-
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
-
-      noStroke();
-
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
-
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
-
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
-
-      if (allConnected) {
-
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(eyeball,0,0);
-        image(eye, 400, 500);
-
-        if (millis() - timerStartTime > 12000){
-          state = 15;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
-
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
-
-      break;
-
-      case 15:
+    //   case 7:
+
+    //   fill(199, 249, 255);
+
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
+
+    //   noStroke();
+
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
+
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
+
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
+
+    //   if (allConnected) {
+
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(bull,0,0);
+    //     image(tarwynus, 400, 500);
+
+    //     if (millis() - timerStartTime > 25000){
+    //       state = 8;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
+
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
+
+    //   break;
+
+    //   case 8:
+
+    //   fill(199, 249, 255);
+
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
+
+    //   noStroke();
+
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
+
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
+
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
+
+    //   if (allConnected) {
+
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(squidy,0,0);
+    //     image(squid, 400, 500);
+
+    //     if (millis() - timerStartTime > 25000){
+    //       state = 9;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
+
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
+
+    //   break;
+
+    //   case 9:
+
+    //   fill(199, 249, 255);
+
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
+
+    //   noStroke();
+
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
+
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
+
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
+
+    //   if (allConnected) {
+
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(bobo,0,0);
+    //     image(bo, 400, 500);
+
+    //     if (millis() - timerStartTime > 13000){
+    //       state = 10;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
+
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
+
+    //   break;
+
+    //   case 10:
+
+    //   fill(199, 249, 255);
+
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
+
+    //   noStroke();
+
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
+
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
+
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
+
+    //   if (allConnected) {
+
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(centaur,0,0);
+    //     image(centaurking, 400, 500);
+
+    //     if (millis() - timerStartTime > 17000){
+    //       state = 11;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
+
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
+
+    //   break;
+
+    //   case 11:
+
+    //   fill(199, 249, 255);
+
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
+
+    //   noStroke();
+
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
+
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
+
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
+
+    //   if (allConnected) {
+
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(oldking,0,0);
+    //     image(pharoah, 400, 500);
+
+    //     if (millis() - timerStartTime > 30000){
+    //       state = 12;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
+
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
+
+    //   break;
+
+    //   case 12:
+
+    //   fill(199, 249, 255);
+
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
+
+    //   noStroke();
+
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
+
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
+
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
+
+    //   if (allConnected) {
+
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(monsterking,0,0);
+    //     image(monster, 400, 500);
+
+    //     if (millis() - timerStartTime > 49000){
+    //       state = 13;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
+
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
+
+    //   break;
+
+    //   case 13:
+
+    //   fill(199, 249, 255);
+
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
+
+    //   noStroke();
+
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
+
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
+
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
+
+    //   if (allConnected) {
+
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(lyre2,0,0);
+    //     image(lyre, 400, 500);
+
+    //     if (millis() - timerStartTime > 13900){
+    //       state = 14;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
+
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
+
+    //   break;
+
+    //   case 14:
+
+    //   fill(199, 249, 255);
+
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
+
+    //   noStroke();
+
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
+
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
+
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
+
+    //   if (allConnected) {
+
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(eyeball,0,0);
+    //     image(eye, 400, 500);
+
+    //     if (millis() - timerStartTime > 12000){
+    //       state = 15;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
+
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
+
+    //   break;
+
+    //   case 15:
         
-      fill(199, 249, 255);
+    //   fill(199, 249, 255);
 
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
 
-      noStroke();
+    //   noStroke();
 
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
 
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
 
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
 
-      if (allConnected) {
+    //   if (allConnected) {
 
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(snakes,0,0);
-        image(hydra, 400, 500);
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(snakes,0,0);
+    //     image(hydra, 400, 500);
 
-        if (millis() - timerStartTime > 24000){
-          state = 16;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
+    //     if (millis() - timerStartTime > 24000){
+    //       state = 16;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
 
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
 
-      break;
+    //   break;
 
-      case 16:
+    //   case 16:
 
-      fill(199, 249, 255);
+    //   fill(199, 249, 255);
 
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
 
-      noStroke();
+    //   noStroke();
 
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
 
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
 
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
 
-      if (allConnected) {
+    //   if (allConnected) {
 
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(man,0,0);
-        image(demigod, 400, 500);
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(man,0,0);
+    //     image(demigod, 400, 500);
 
-        if (millis() - timerStartTime > 10000){
-          state = 17;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
+    //     if (millis() - timerStartTime > 10000){
+    //       state = 17;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
 
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
 
-      break;
+    //   break;
 
-      case 17:
+    //   case 17:
 
-      fill(199, 249, 255);
+    //   fill(199, 249, 255);
 
-      //old lines
-      stroke(199, 249, 255);
-      for (let i = 0; i < lines.length; i++) {
-        const l = lines[i];
-        l.draw();
-      }
+    //   //old lines
+    //   stroke(199, 249, 255);
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const l = lines[i];
+    //     l.draw();
+    //   }
 
-      noStroke();
+    //   noStroke();
 
-      lineEndingX = mouseX;
-      lineEndingY = mouseY;
+    //   lineEndingX = mouseX;
+    //   lineEndingY = mouseY;
 
-      for (let i = 0; i < allCoordinates[stage].length; i++) {
-        const xy = allCoordinates[stage][i];
-        circle(xy.x, xy.y, random(18, 20));
-        if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
-          lineEndingX = xy.x;
-          lineEndingY = xy.y;
-        }
-      }
+    //   for (let i = 0; i < allCoordinates[stage].length; i++) {
+    //     const xy = allCoordinates[stage][i];
+    //     circle(xy.x, xy.y, random(18, 20));
+    //     if (dist(mouseX, mouseY, xy.x, xy.y) < 7) {
+    //       lineEndingX = xy.x;
+    //       lineEndingY = xy.y;
+    //     }
+    //   }
 
-      stroke(199, 249, 255);
-      line(mx, my, lineEndingX, lineEndingY);
+    //   stroke(199, 249, 255);
+    //   line(mx, my, lineEndingX, lineEndingY);
 
-      if (allConnected) {
+    //   if (allConnected) {
 
-        if (timerStartTime === undefined) {
-          timerStartTime = millis(); // Reset the timer when entering Case 2
-        } 
-        image(doggy,0,0);
-        image(dog, 400, 500);
+    //     if (timerStartTime === undefined) {
+    //       timerStartTime = millis(); // Reset the timer when entering Case 2
+    //     } 
+    //     image(doggy,0,0);
+    //     image(dog, 400, 500);
 
-        if (millis() - timerStartTime > 17000){
-          state = 18;
-          stage = (stage + 1) % allCoordinates.length;
-          console.log(stage);
+    //     if (millis() - timerStartTime > 17000){
+    //       state = 18;
+    //       stage = (stage + 1) % allCoordinates.length;
+    //       console.log(stage);
 
-          lines = [];
-          allConnected = false;
-          currentdotIndex = 0;
-          mx = undefined;
-          my = undefined;
-          timerStartTime = undefined;
-        }
-      } else {
-        timerStartTime = undefined; 
-      }
+    //       lines = [];
+    //       allConnected = false;
+    //       currentdotIndex = 0;
+    //       mx = undefined;
+    //       my = undefined;
+    //       timerStartTime = undefined;
+    //     }
+    //   } else {
+    //     timerStartTime = undefined; 
+    //   }
 
-      break;
+    //   break;
 
-      case 18:
+    //   case 18:
 
-      image(endscreen, 0, 0);
+    //   image(endscreen, 0, 0);
 
-      break;
+    //   break;
 
 
 
@@ -1027,38 +1023,21 @@ function mouseClicked() {
   }
 }
 
-// function keyPressed() {
-//   if (key === 'm') {
-//     song.play();
-//     if (song.isPlaying()) {
-//       song.stop();
-//     }
-//     song.loop();
-//   } else if (key === 'M') {
-//     song.play();
-//     if (song.isPlaying()) {
-//       song.stop();
-//     }
-//     song.loop();
-//   }
-//   if (key === 's') {
-//     song.stop();
-//   }
-// }
-
-// function meteorShower (meteorSpeed) {
-//   fill(199, 249, 255);
-//   circle(meteorX, meteorY, meteorDiameter);
-//   circle(meteorX + 400, meteorY - 300, meteorDiameter);
-//   circle(meteorX + 700, meteorY + 50, meteorDiameter);
-//   circle(meteorX, meteorY + 420, meteorDiameter);
-//   meteorX = meteorX + meteorSpeed;
-//   meteorY = meteorX + meteorSpeed;
-
-//   if(meteorX > 1399 || meteorY > 703) {
-//     meteorX = 0;
-//     meteorY = 0;
-//     meteorDiameter = 1;
-//   }
-
-// }
+function keyPressed() {
+  if (key === 'm') {
+    song.play();
+    if (song.isPlaying()) {
+      song.stop();
+    }
+    song.loop();
+  } else if (key === 'M') {
+    song.play();
+    if (song.isPlaying()) {
+      song.stop();
+    }
+    song.loop();
+  }
+  if (key === 's') {
+    song.stop();
+  }
+}
