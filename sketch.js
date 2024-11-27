@@ -5,10 +5,9 @@ let allConnected = false; //when lines connect dots, this'll become true
 let currentdotIndex = 0;
 let state = 0;
 let stage = 0;
-let img;
 let gradient;
 let text1, text2;
-let song;
+//let song;
 let allCoordinates = [];
 let stars = [];
 let numberofStars = 150;
@@ -21,11 +20,10 @@ let keklosfinal, kyprafull, kairos, teriliou, kyrin, tarwynus, squid, bo, centau
 let crab, fish, hourglass, bird, horse, bull, squidy, bobo, centaur, oldking, monsterking, lyre2, eyeball, snakes, man, doggy, endscreen;
 
 function preload() {
-  //img = loadImage('/assets/Placeholder.png');
   gradient = loadImage('/assets/gradient.png');
   text1 = loadImage('/assets/text1.gif');
   text2 = loadImage('/assets/text2.gif');
-  song = loadSound('/assets/music.mp3');
+  //song = loadSound('/assets/music.mp3');
   keklosfinal = loadImage('/assets/keklosfinal.gif');
   kyprafull = loadImage('/assets/kyprafull.gif');
   kairos = loadImage('/assets/kairos.gif');
@@ -62,7 +60,7 @@ function preload() {
 }
 
 function setup() {
-  song.play();
+  //song.play();
 
   allCoordinates = [
     [createVector(322, 65), createVector(128, 317), createVector(365, 534), createVector(800, 634), createVector(1076, 502), createVector(1186, 357), createVector(1136, 283), createVector(973, 86)],
@@ -1029,24 +1027,24 @@ function mouseClicked() {
   }
 }
 
-function keyPressed() {
-  if (key === 'm') {
-    song.play();
-    if (song.isPlaying()) {
-      song.stop();
-    }
-    song.loop();
-  } else if (key === 'M') {
-    song.play();
-    if (song.isPlaying()) {
-      song.stop();
-    }
-    song.loop();
-  }
-  if (key === 's') {
-    song.stop();
-  }
-}
+// function keyPressed() {
+//   if (key === 'm') {
+//     song.play();
+//     if (song.isPlaying()) {
+//       song.stop();
+//     }
+//     song.loop();
+//   } else if (key === 'M') {
+//     song.play();
+//     if (song.isPlaying()) {
+//       song.stop();
+//     }
+//     song.loop();
+//   }
+//   if (key === 's') {
+//     song.stop();
+//   }
+// }
 
 // function meteorShower (meteorSpeed) {
 //   fill(199, 249, 255);
